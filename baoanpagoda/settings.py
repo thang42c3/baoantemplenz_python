@@ -14,7 +14,7 @@ from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 import os
 
-PLACE_TO_RUN = 'AMAZON1'
+PLACE_TO_RUN = 'AMAZON'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-qz2%y=1qg3ih_&l#xycf55a1l60bd$&zo&3*8zm$vz)0n+b%r*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-env.eba-vai85jfb.us-west-2.elasticbeanstalk.com', '172.31.23.162', '127.0.0.1:8000',  '127.0.0.1']
+ALLOWED_HOSTS = [*]
 
 
 # Application definition
