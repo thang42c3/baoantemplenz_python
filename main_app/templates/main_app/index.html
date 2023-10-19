@@ -1,0 +1,208 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+{% load i18n %}
+
+{% load custom_filters %}
+
+  <!-- ======= Hero Section ======= -->
+ <section id="hero" class="d-flex align-items-center">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-12 order-1 order-lg-2 hero-img">
+        <div style="position: relative;">
+          <!--
+          <img src="{% static 'assets/img/header-bg.jpg' %}" class="img-fluid" alt="">
+          -->
+          <img src="{{ imagelanding.image.url }}" class="img-fluid" alt="">
+          <h1 class="title"><a class="responsive-text" href="" style="position: absolute; top: 65%; left: 50%; transform: translate(-50%, -50%); color: white">{% trans "Chùa Báo Ân kính chào" %}</a></h1>
+          <a href="#about"  class="responsive-button" style="position: absolute; top: 70%; left: 50%; transform: translate(-50%, -50%); background-color: #D2691E ">{% trans "Thông tin chi tiết" %}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+         <div class="row justify-content-between">
+          <div class="col-lg-6 d-flex align-items-center justify-content-center about-img">
+            <img src="{{ about_us_detail.image.url }}" class="img-fluid" alt="" data-aos="zoom-in">
+          </div>
+          <div class="col-lg-6 pt-5 pt-lg-0">
+            <a href="aboutus/{{about_us_detail.en_slug}}">
+            <h3 data-aos="fade-up">{{ about_us_detail|get_name_for_language:request.LANGUAGE_CODE }}</h3>
+            <p data-aos="fade-up" data-aos-delay="100">{{about_us_detail|get_description_for_language:request.LANGUAGE_CODE|safe}}</p>
+            </a>
+            <div class="row">
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="100" style="max-height:180px; overflow: hidden">
+                <a href="aboutus/{{history.en_slug}}">
+                <i class="bi bi-clock-history"></i>
+                <h4>{{history|get_name_for_language:request.LANGUAGE_CODE}}</h4>
+                <p>{{history|get_description_for_language:request.LANGUAGE_CODE|safe}}</p>
+                </a>
+              </div>
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="200" style="max-height:180px; overflow: hidden">
+                <a href="aboutus/{{abbot.en_slug}}">
+                <i class="bi bi-person"></i>
+                <h4>{{abbot|get_name_for_language:request.LANGUAGE_CODE}}</h4>
+                <p>{{abbot|get_description_for_language:request.LANGUAGE_CODE|safe}}</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <p>{% trans "Các hoạt động" %}</p>
+        </div>
+           <div class="row">
+              {% for action_category in action_categories %}
+
+              <div class="col-md-6 col-lg-3 d-flex align-items-stretch" style="height: 310px" data-aos="zoom-in" data-aos-delay="100">
+                <a href="action/{{action_category.en_slug}}">
+                  <div class="icon-box">
+                     <div class="row icon text-center">
+                      <img src="{{ action_category.image.url }}" alt="" data-aos="zoom-in" style="max-width: 100px; height: auto; display: block; margin: 0 auto; ">
+                      </div>
+                    <div class="row">
+                    <h4 class="title"><a href="action/{{action_category.en_slug}}">{{action_category|get_name_for_language:request.LANGUAGE_CODE}}</a></h4>
+                    <p class="description"> <a href="action/{{action_category.en_slug}}" style="color: inherit">{{action_category|get_description_for_language:request.LANGUAGE_CODE|safe}}</a></p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              {% endfor %}
+        </div>
+      </div>
+    </section><!-- End Services Section -->
+
+
+
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <p>{% trans "Thư viện hình ảnh" %}</p>
+        </div>
+        <!--
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              {% for gallery_categorie in gallery_categories %}
+                <li data-filter=".{{ gallery_categorie.en_slug }}">{{ gallery_categorie.vn_name }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        -->
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+              {% for image_gallery in image_galleries %}
+                <div class="col-lg-4 col-md-6 portfolio-item {{image_gallery.category.en_slug}} ">
+                  <div class="portfolio-wrap">
+                    <img src={{image_gallery.image.url}} class="img-fluid" alt="">
+                    <div class="portfolio-links">
+                      <a href={{image_gallery.image.url}} data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
+                    </div>
+                    <div class="portfolio-info">
+                      <h4>{{image_gallery.vn_name}}</h4>
+                      <!-- <p>{{image_gallery.vn_description}}</p> -->
+                    </div>
+                  </div>
+                </div>
+          {% if forloop.counter|divisibleby:3 and not forloop.last %}
+              </div><div class="row">
+          {% endif %}
+          {% endfor %}
+                    </div>
+              <div class="pagination">
+                <span class="step-links">
+                  {% if image_galleries.has_previous %}
+                    <a href="?page=1#portfolio">{% trans "Đầu" %}</a>
+                    <a href="?page={{ image_galleries.previous_page_number }}#portfolio">{% trans "Trước" %}</a>
+                  {% endif %}
+
+                  <span class="current-page">{{ image_galleries.number }}</span>
+
+                  {% if image_galleries.has_next %}
+                    <a href="?page={{ image_galleries.next_page_number }}#portfolio">{% trans "Tiếp" %}</a>
+                    <a href="?page={{ image_galleries.paginator.num_pages }}#portfolio">{% trans "Cuối" %}</a>
+                  {% endif %}
+                </span>
+              </div>
+        </div>
+      </section>
+     <!-- ======= Contact Us Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>{% trans "Liên lạc" %}</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>{% trans "Vị trí" %}:</h4>
+                <p>15 Allenby Road, Papatoetoe, Auckland 2025, New Zealand</p>
+              </div>
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@example.com</p>
+              </div>
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>{% trans "Điện thoại" %}:</h4>
+                <p>+64 9 279 7126</p>
+              </div>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12748.618212060986!2d174.8693308!3d-36.9822439!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d4de5ccd2bc63%3A0xad0f4bba21fd6505!2zQ2jDuWEgQsOhbyDDgm4!5e0!3m2!1sen!2s!4v1695635836972!5m2!1sen!2s" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+
+          </div>
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <form action="{% url 'contact' %}" method="post" role="form" class="php-email-form">
+                {% csrf_token %}
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">{% trans "Tên" %}</label>
+                  <input type="text" name="name" class="form-control" id="name" placeholder="{% trans 'Tên' %}" required>
+                </div>
+                <div class="form-group col-md-6 mt-3 mt-md-0">
+                  <label for="email">{% trans "Địa chỉ email" %}</label>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="{% trans 'Địa chỉ email' %}" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <label for="subject">{% trans "Tiêu đề" %}</label>
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="{% trans 'Tiêu đề' %}" required>
+              </div>
+              <div class="form-group mt-3">
+                <label for="message">{% trans "Nội dung" %}</label>
+                <textarea class="form-control" name="message" id="message" rows="10" required></textarea>
+              </div>
+              <div class="text-center"><button type="submit">{% trans 'Gửi' %}</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact Us Section -->
+  </main><!-- End #main -->
+
+{% endblock %}

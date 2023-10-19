@@ -1,0 +1,25 @@
+@media (min-width: 768px) and (max-width: 1024px) {
+    .responsive-text {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .breadcrumb-item {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .language-lg {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .language-md-sm {
+        display: none;
+    }
+}
+
+

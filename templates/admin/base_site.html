@@ -1,0 +1,17 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<div><img src="{% static 'admin/img/Logo.png' %}" style="height: 3.5rem; display: block; margin-left: auto; margin-right: auto;
+  width:auto;" alt="Logo" data-aos="zoom-in">
+
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Trang Quản trị Website Chùa Báo Ân</a></h1>
+  </div>
+{% if user.is_anonymous %}
+  {% include "admin/color_theme_toggle.html" %}
+{% endif %}
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

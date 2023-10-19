@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-12 19:51+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\baoanpagoda\settings.py:121
+msgid "English"
+msgstr ""
+
+#: .\baoanpagoda\settings.py:122
+msgid "Vietnamese"
+msgstr ""
+
+#: .\baoanpagoda\settings.py:121
+msgid "Về chúng tôi"
+msgstr "About Us"
+
+msgid "Thư viện hình ảnh"
+msgstr "Image Gallery"
+
+msgid "Trang chủ"
+msgstr "Home"
+
+msgid "Quyên góp"
+msgstr "Donation"
+
+msgid "Liên lạc"
+msgstr "Contact"
+
+msgid "Thông tin chi tiết"
+msgstr "For more details"
+
+msgid "Chùa Báo Ân kính chào"
+msgstr "Welcome to Bao An temple"
+
+msgid "Vị trí"
+msgstr "Location"
+
+msgid "Điện thoại"
+msgstr "Call"
+
+msgid "Tên"
+msgstr "Your Name"
+
+msgid "Địa chỉ email"
+msgstr "Your Email"
+
+msgid "Tiêu đề"
+msgstr "Subject"
+
+msgid "Nội dung"
+msgstr "Message"
+
+msgid "Gửi"
+msgstr "Send Message"
+
+msgid "Các hoạt động"
+msgstr "Actions"
+
+msgid "Chùa Bảo Ân"
+msgstr "Bao An temple"
+
+msgid "Trước"
+msgstr "Previous"
+
+msgid "Tiếp"
+msgstr "Next"
+
+msgid "Cuối"
+msgstr "Last"
+
+msgid "Đầu"
+msgstr "First"
+
+msgid "Ngôn ngữ"
+msgstr "Language"
+
+msgid "Chùa Báo Ân"
+msgstr "Bao An Temple"

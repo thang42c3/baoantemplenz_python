@@ -1,0 +1,48 @@
+{% extends "main_app/base.html" %}
+
+{% load i18n %}
+
+{% load static %}
+
+{% load custom_filters %}
+
+{% block content %}
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">{% trans "Trang chủ" %}</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'action' category_slug=category.en_slug %}">{{category|get_name_for_language:request.LANGUAGE_CODE}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{single_post|get_name_for_language:request.LANGUAGE_CODE}}</li>
+        </ol>
+    </nav>
+    <div class="row text-center fs-3 text-uppercase"><p>{{ single_post|get_name_for_language:request.LANGUAGE_CODE }}</p></div>
+
+   <div class="row">
+        <div class="col-md-2 col-sm-0">
+        </div>
+        <div class="col-md-8 col-sm-12">
+            <div class="card mb-4">
+                <div class="row">
+                <img src="{{ single_post.image.url }}" class="card-img-top" alt="Image" style="max-height: 500px; object-fit: cover;">
+                </div>
+                <div class="row card-body">
+                    <p class="card-text" >{{ single_post|get_description_for_language:request.LANGUAGE_CODE|safe }}</p>
+                </div>
+                <br>
+                <div>
+                    {% if single_post.pdf_file %}
+                    <a href="{{ action_list.pdf_file.url }}" class="btn btn-success text-right" download>{% trans "Chi tiết" %}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+       <div class="col-md-2 col-sm-0">
+        </div>
+   </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% endblock %}

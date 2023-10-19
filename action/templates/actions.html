@@ -1,0 +1,62 @@
+{% extends "main_app/base.html" %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+
+{% load custom_filters %}
+
+<div class="container">
+    <br>
+    <nav aria-label="breadcrumb nav-breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">{% trans "Trang chủ" %}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{category|get_name_for_language:request.LANGUAGE_CODE}}</li>
+        </ol>
+    </nav>
+    <div class="row text-center fs-1 text-uppercase"><p>{{ category|get_name_for_language:request.LANGUAGE_CODE }}</p> </div>
+
+   <div class="row">
+        {% for action_list in action_lists %}
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="row" style="height: 350px">
+                <img src="{{ action_list.image.url }}" class="card-img-top" alt="Image" style="max-height: 350px; object-fit: cover;">
+                </div>
+                <div class="row card-body" style="max-height:250px; overflow: hidden">
+                    <h5 class="card-title text-center fs-3 font-monospace">{{ action_list|get_name_for_language:request.LANGUAGE_CODE }}</h5>
+                    <p class="card-text" >{{ action_list|get_description_for_language:request.LANGUAGE_CODE|safe }}</p>
+                </div>
+                <br>
+                <div class="justify-content-end">
+                    {% if action_list.pdf_file %}
+                    <a href="{{ action_list.pdf_file.url }}" class="btn btn-success" >{% trans "Tải về" %}</a>
+                    {% endif %}
+                    <a href="{{ action_list.en_slug }}" class="btn btn-primary">{% trans "Chi tiết" %}</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if action_lists.has_previous %}
+                <a href="?page=1">{% trans "Đầu" %}</a>
+                <a href="?page={{ action_lists.previous_page_number }}">{% trans "Trước" %}</a>
+                {% endif %}
+
+                {% if action_lists_count > 4 %}
+                    <span class="current-page">{{ action_lists.number }}</span>
+                {% endif %}
+
+                {% if action_lists.has_next %}
+                <a href="?page={{ action_lists.next_page_number }}">{% trans "Tiếp" %}</a>
+                <a href="?page={{ action_lists.paginator.num_pages }}">{% trans "Cuối" %}</a>
+                {% endif %}
+            </span>
+        </div>
+   </div>
+
+
+{% endblock %}

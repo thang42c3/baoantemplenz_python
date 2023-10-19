@@ -1,0 +1,73 @@
+{% extends "main_app/base.html" %}
+
+{% load i18n %}
+
+{% load static %}
+
+{% load custom_filters %}
+
+{% block content %}
+</section><!-- End Services Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+        <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">{% trans "Trang chủ" %}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{category|get_name_for_language:request.LANGUAGE_CODE}}</li>
+        </ol>
+        </nav>
+
+        <div class="section-title">
+          <h3>{{ category|get_name_for_language:request.LANGUAGE_CODE }}</h3>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+              {% for image_gallery in image_galleries %}
+                <div class="col-lg-4 col-md-6 portfolio-item {{image_gallery.category.en_slug}} ">
+                  <div class="portfolio-wrap">
+                    <img src={{image_gallery.image.url}} class="img-fluid" alt="">
+                    <div class="portfolio-links">
+                      <a href={{image_gallery.image.url}} data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
+                    </div>
+                    <div class="portfolio-info">
+                      <h4>{{image_gallery|get_name_for_language:request.LANGUAGE_CODE}}</h4>
+                      <!-- <p>{{image_gallery.vn_description}}</p> -->
+                    </div>
+                  </div>
+                </div>
+
+          {% if forloop.counter|divisibleby:3 and not forloop.last %}
+              </div><div class="row">
+          {% endif %}
+          {% endfor %}
+        </div>
+<div class="pagination">
+  <span class="step-links">
+    {% if image_galleries.has_previous %}
+      <a href="?page=1">{% trans "Đầu" %}</a>
+      <a href="?page={{ image_galleries.previous_page_number }}">{% trans "Trước" %}</a>
+    {% endif %}
+
+    <span class="current-page">{{ image_galleries.number }}</span>
+
+    {% if image_galleries.has_next %}
+      <a href="?page={{ image_galleries.next_page_number }}">{% trans "Tiếp" %}</a>
+      <a href="?page={{ image_galleries.paginator.num_pages }}">{% trans "Cuối" %}</a>
+    {% endif %}
+  </span>
+</div>
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+
+<iframe width="410" height="280" src="https://www.youtube.com/embed/62RxpCP9TxQ?si=T8A1eY_30L0qOBxO" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+          </div>
+          -->
+
+
+
+      </div>
+    </section><!-- End Portfolio Section -->
+{% endblock %}
