@@ -64,4 +64,4 @@ jobs:
         with:
           app-name: 'baoantemplenz'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3B9560ADD5284D4687EDC6DD23E27F92 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_19C0A6ADD2E74F719683ACC482456859 }}
