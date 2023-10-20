@@ -14,7 +14,7 @@ from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 import os
 
-PLACE_TO_RUN = 'AMAZON'
+PLACE_TO_RUN = 'AMAZON1'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
