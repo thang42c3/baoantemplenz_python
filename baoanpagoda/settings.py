@@ -178,3 +178,7 @@ CKEDITOR_CONFIGS = {
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]
+
+CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']]
+
+
