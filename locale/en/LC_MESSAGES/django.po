@@ -91,3 +91,6 @@ msgstr "Language"
 
 msgid "Chùa Báo Ân"
 msgstr "Bao An Temple"
+
+msgid "Đăng nhập"
+msgstr "Login"
