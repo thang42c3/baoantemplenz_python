@@ -1,13 +1,31 @@
 from django.contrib import admin
 # Register your models here.
 from django.db import models
-from . models import ImageLanding, Menu, ContactMessage
+from . models import ImageLanding, Menu, ContactMessage, Address, SocialMediaLink
 from ckeditor.widgets import CKEditorWidget
 
 @admin.register(ImageLanding)
 class ImageLandingAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     list_display = ('name', 'image', 'created_at')  # Fields to display in the list view
+    list_filter = ('created_at',)  # Fields to filter by in the list view
+    search_fields = ('name',)  # Fields to search by in the list view
+    date_hierarchy = 'created_at'  # Add a date-based drilldown navigation by 'created_at'
+
+
+@admin.register(Address)
+class AddressAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
+    list_display = ('name', 'created_at')  # Fields to display in the list view
+    list_filter = ('created_at',)  # Fields to filter by in the list view
+    search_fields = ('name',)  # Fields to search by in the list view
+    date_hierarchy = 'created_at'  # Add a date-based drilldown navigation by 'created_at'
+
+
+@admin.register(SocialMediaLink)
+class SocialMediaLinkAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
+    list_display = ('name', 'created_at')  # Fields to display in the list view
     list_filter = ('created_at',)  # Fields to filter by in the list view
     search_fields = ('name',)  # Fields to search by in the list view
     date_hierarchy = 'created_at'  # Add a date-based drilldown navigation by 'created_at'

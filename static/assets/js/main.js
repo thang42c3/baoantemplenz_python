@@ -184,7 +184,7 @@
     speed: 400,
     loop: true,
     autoplay: {
-      delay: 5000,
+      delay: 7000,
       disableOnInteraction: false
     },
     pagination: {
@@ -198,7 +198,7 @@
    * Clients Slider
    */
   new Swiper('.clients-slider', {
-    speed: 400,
+    speed: 200,
     loop: true,
     autoplay: {
       delay: 5000,
@@ -212,20 +212,20 @@
     },
     breakpoints: {
       320: {
-        slidesPerView: 2,
-        spaceBetween: 40
+        slidesPerView: 1,
+        spaceBetween: 30
       },
       480: {
-        slidesPerView: 3,
-        spaceBetween: 60
+        slidesPerView: 1,
+        spaceBetween: 30
       },
       640: {
-        slidesPerView: 4,
-        spaceBetween: 80
+        slidesPerView: 2,
+        spaceBetween: 30
       },
       992: {
-        slidesPerView: 6,
-        spaceBetween: 120
+        slidesPerView: 4,
+        spaceBetween: 30
       }
     }
   });

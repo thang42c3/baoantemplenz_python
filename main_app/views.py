@@ -32,7 +32,8 @@ def menu_views(request):
     about_us = Menu.objects.filter(en_slug='about-us').first()
     action = Menu.objects.filter(en_slug='action').first()
     gallery_categories = GalleryCategories.objects.all()
-    action_categories = ActionsCategory.objects.all()[:4]
+    #action_categories = ActionsCategory.objects.all()[:4]
+    action_categories = ActionsCategory.objects.all()
     aboutus_categories = AboutUs.objects.all()
 
     about_us_detail = AboutUs.objects.filter(en_slug='about-us').first()
