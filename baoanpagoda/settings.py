@@ -14,7 +14,7 @@ from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 import os
 
-PLACE_TO_RUN = 'AMAZON1'
+PLACE_TO_RUN = 'PYTHONANYWHERE'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -140,6 +140,8 @@ if PLACE_TO_RUN == 'AMAZON':
         os.path.join(BASE_DIR, "static"),
         '/var/www/static/',
     ]
+elif PLACE_TO_RUN == 'PYTHONANYWHERE':
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 else:
     STATICFILES_DIRS = [BASE_DIR / 'static']
 
