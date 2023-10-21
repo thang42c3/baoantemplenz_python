@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import ImageLanding, Menu, ContactMessage
+from .models import ImageLanding, Menu, ContactMessage, ContactInformation, SocialMediaLink
 from gallery.models import GalleryCategories, ImageGallery, MediaGallery
 from action.models import ActionsCategory, Action
 from aboutus.models import AboutUsCategory, AboutUs
@@ -24,7 +24,6 @@ def index(request):
         'media_galleries': media_galleries,
         'gallery_categories': gallery_categories,
     }
-
     return render(request, 'main_app/index.html', context=context)
 
 
@@ -41,6 +40,10 @@ def menu_views(request):
     abbot = AboutUs.objects.filter(en_slug='abbot').first()
     policy = AboutUs.objects.filter(en_slug='policy').first()
 
+    contact_information = ContactInformation.objects.all().first()
+    social_media_link = SocialMediaLink.objects.all().first()
+
+
     # Create a list of dictionaries where each dictionary represents a menu and its associated submenus
     context = {
         'about_us': about_us,
@@ -51,8 +54,9 @@ def menu_views(request):
         'about_us_detail':about_us_detail,
         'history':history,
         'abbot':abbot,
-        'policy':policy
-
+        'policy':policy,
+        'contact_information': contact_information,
+        'social_media_link': social_media_link
     }
     return context
 

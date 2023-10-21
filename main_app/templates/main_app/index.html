@@ -87,7 +87,6 @@
               {% endfor %}
           </div>
           <div class="swiper-pagination"></div>
-
         </div>
       </div>
     </section><!-- End Services Section -->
@@ -163,19 +162,19 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>{% trans "Vị trí" %}:</h4>
-                <p>15 Allenby Road, Papatoetoe, Auckland 2025, New Zealand</p>
+                <p>{{contact_information.address}}</p>
               </div>
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>{{contact_information.email}}</p>
               </div>
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>{% trans "Điện thoại" %}:</h4>
-                <p>+64 9 279 7126</p>
+                <p>{{contact_information.phone}}</p>
               </div>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12748.618212060986!2d174.8693308!3d-36.9822439!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d4de5ccd2bc63%3A0xad0f4bba21fd6505!2zQ2jDuWEgQsOhbyDDgm4!5e0!3m2!1sen!2s!4v1695635836972!5m2!1sen!2s" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+              <iframe src="{{contact_information.google_map_url}}" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
             </div>
 
           </div>

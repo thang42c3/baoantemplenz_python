@@ -147,22 +147,20 @@
           <div class="col-lg-6 col-md-6 footer-contact">
             <h3>{% trans "Chùa Báo Ân" %}</h3>
             <p>
-              15 Allenby Road <br>
-              Papatoetoe, Auckland 2025, <br>
-              New Zealand<br><br>
-              <strong>{% trans "Điện thoại" %}:</strong> +64 9 279 7126<br>
-              <strong>Email:</strong> info@example.com<br>
+              {{contact_information.address|safe}}<br><br>
+              <strong>{% trans "Điện thoại" %}:</strong>{{contact_information.phone}}<br>
+              <strong>Email:</strong>{{contact_information.email}}<br>
             </p>
           </div>
 
           <div class="col-lg-6 col-md-6 footer-links">
             <h4>Our Social Networks</h4>
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              <a href="{{social_media_link.url_twitter}}" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="{{social_media_link.url_facebook}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="{{social_media_link.url_instagram}}" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="{{social_media_link.url_google_plus}}" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="{{social_media_link.url_linkedin}}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
           </div>
 
@@ -189,10 +187,6 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
-
-
-</body>
-
 <script>
     function changeLanguage(languageCode) {
         // Set the new language code
@@ -200,5 +194,22 @@
         // Reload the page to apply the language change
         location.reload();
     }
+
+        function checkAndSetLanguage() {
+        if (document.cookie.indexOf("django_language=") === -1) {
+            // Set the new language code to 'vi'
+            document.cookie = "django_language=vi; path=/";
+            // Reload the page to apply the language change
+            location.reload();
+        }
+    }
+
+    // Call the function when the page loads
+    window.addEventListener("load", checkAndSetLanguage);
 </script>
+
+
+</body>
+
+
  </html>

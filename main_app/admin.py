@@ -1,7 +1,7 @@
 from django.contrib import admin
 # Register your models here.
 from django.db import models
-from . models import ImageLanding, Menu, ContactMessage, Address, SocialMediaLink
+from . models import ImageLanding, Menu, ContactMessage, ContactInformation, SocialMediaLink
 from ckeditor.widgets import CKEditorWidget
 
 @admin.register(ImageLanding)
@@ -13,13 +13,14 @@ class ImageLandingAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_at'  # Add a date-based drilldown navigation by 'created_at'
 
 
-@admin.register(Address)
-class AddressAdmin(admin.ModelAdmin):
+@admin.register(ContactInformation)
+class ContactInformationAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     list_display = ('name', 'created_at')  # Fields to display in the list view
     list_filter = ('created_at',)  # Fields to filter by in the list view
     search_fields = ('name',)  # Fields to search by in the list view
     date_hierarchy = 'created_at'  # Add a date-based drilldown navigation by 'created_at'
+
 
 
 @admin.register(SocialMediaLink)
