@@ -98,3 +98,7 @@ msgstr "Chùa Báo Ân"
 
 msgid "Login"
 msgstr "Đăng nhập"
+
+msgid "Download"
+msgstr "Tải về"
+

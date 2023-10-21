@@ -94,3 +94,6 @@ msgstr "Bao An Temple"
 
 msgid "Đăng nhập"
 msgstr "Login"
+
+msgid "Tải về"
+msgstr "Download"

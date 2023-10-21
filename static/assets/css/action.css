@@ -1,0 +1,28 @@
+@media (max-width: 426px) {
+    .display-md {
+        display: none;
+    }
+}
+
+@media (min-width: 426px) {
+    .display-sm {
+        display: none;
+    }
+}
+
+    /* Default link style for elements with the "action" class */
+    a.action {
+        color: inherit; /* Inherit the color from the parent element */
+        text-decoration: none; /* Remove underline */
+    }
+
+    /* Style the link when visited (i.e., after it's clicked) for elements with the "action" class */
+    a.action:visited {
+        color: inherit; /* Inherit the color from the parent element */
+        text-decoration: none; /* Remove underline */
+    }
+
+    /* Style the link on hover (when the mouse is over it) for elements with the "action" class */
+    a.action:hover {
+        color: inherit; /* Inherit the color from the parent element */
+    }

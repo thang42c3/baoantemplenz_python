@@ -68,10 +68,32 @@
         <div class="section-title">
           <p>{% trans "Các hoạt động" %}</p>
         </div>
-        <div class="clients-slider swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper align-items-center">
+          <div class="display-md">
+            <div class="clients-slider swiper display-md" data-aos="fade-up" data-aos-delay="100">
+              <div class="swiper-wrapper align-items-center">
+                  {% for action_category in action_categories %}
+                  <div class="col-md-6 col-lg-3 d-flex align-items-stretch swiper-slide" style="height: 310px" data-aos="zoom-in" data-aos-delay="100">
+                    <a href="action/{{action_category.en_slug}}">
+                      <div class="icon-box">
+                         <div class="row icon text-center">
+                          <img src="{{ action_category.image.url }}" alt="" data-aos="zoom-in" style="max-width: 100px; height: auto; display: block; margin: 0 auto; ">
+                          </div>
+                        <div class="row">
+                        <h4 class="title"><a href="action/{{action_category.en_slug}}">{{action_category|get_name_for_language:request.LANGUAGE_CODE}}</a></h4>
+                        <p class="description"> <a href="action/{{action_category.en_slug}}" style="color: inherit">{{action_category|get_description_for_language:request.LANGUAGE_CODE|safe}}</a></p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  {% endfor %}
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+        <div class="row display-sm">
               {% for action_category in action_categories %}
-              <div class="col-md-6 col-lg-3 d-flex align-items-stretch swiper-slide" style="height: 310px" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" style="height: 310px" data-aos="zoom-in" data-aos-delay="100">
                 <a href="action/{{action_category.en_slug}}">
                   <div class="icon-box">
                      <div class="row icon text-center">
@@ -85,8 +107,6 @@
                 </a>
               </div>
               {% endfor %}
-          </div>
-          <div class="swiper-pagination"></div>
         </div>
       </div>
     </section><!-- End Services Section -->

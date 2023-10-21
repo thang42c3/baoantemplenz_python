@@ -25,17 +25,21 @@
                 <div class="row" style="height: 350px">
                 <img src="{{ action_list.image.url }}" class="card-img-top" alt="Image" style="max-height: 350px; object-fit: cover;">
                 </div>
+                <a class="action" href="{{ action_list.en_slug }}" >
                 <div class="row card-body" style="max-height:250px; overflow: hidden">
                     <h5 class="card-title text-center fs-3 font-monospace">{{ action_list|get_name_for_language:request.LANGUAGE_CODE }}</h5>
                     <p class="card-text" >{{ action_list|get_description_for_language:request.LANGUAGE_CODE|safe }}</p>
                 </div>
+                </a>
                 <br>
+                <!--
                 <div class="justify-content-end">
                     {% if action_list.pdf_file %}
                     <a href="{{ action_list.pdf_file.url }}" class="btn btn-success" >{% trans "Tải về" %}</a>
                     {% endif %}
                     <a href="{{ action_list.en_slug }}" class="btn btn-primary">{% trans "Chi tiết" %}</a>
                 </div>
+                -->
             </div>
         </div>
         {% endfor %}
