@@ -48,7 +48,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto" href="/">{% trans "Trang chủ" %}</a></li>
-          <li class="dropdown"><a href="#about"><span>{{about_us|get_name_for_language:request.LANGUAGE_CODE}}</span><i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="{% url 'index' %}#about"><span>{{about_us|get_name_for_language:request.LANGUAGE_CODE}}</span><i class="bi bi-chevron-down"></i></a>
               <ul>
               {% for aboutus_category in aboutus_categories %}
                 <li><a href="/aboutus/{{ aboutus_category.en_slug }}">
@@ -58,7 +58,7 @@
               </ul>
           </li>
 
-            <li class="dropdown"><a href="#services"><span>{{action|get_name_for_language:request.LANGUAGE_CODE}}</span><i class="bi bi-chevron-down"></i></a>
+            <li class="dropdown"><a href="{% url 'index' %}#services"><span>{{action|get_name_for_language:request.LANGUAGE_CODE}}</span><i class="bi bi-chevron-down"></i></a>
             <ul>
               {% for action_category in action_categories %}
                 <li><a href="/action/{{ action_category.en_slug }}">
@@ -68,7 +68,7 @@
             </ul>
           </li>
 
-          <li class="dropdown"><a href="#portfolio"><span>{% trans "Thư viện hình ảnh" %}</span><i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="{% url 'index' %}#portfolio"><span>{% trans "Thư viện hình ảnh" %}</span><i class="bi bi-chevron-down"></i></a>
             <ul>
               {% for gallery_categorie in gallery_categories %}
                 <li>
@@ -80,8 +80,8 @@
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="{% url 'donation' %}">{% trans "Quyên góp"%}</a></li>
-          <li><a class="nav-link scrollto" href="/#contact">{% trans "Liên lạc" %}</a></li>
-          <li><a class="nav-link scrollto" href="/admin">{% trans "Đăng nhập" %}</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'index' %}#contact">{% trans "Liên lạc" %}</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'index' %}admin">{% trans "Đăng nhập" %}</a></li>
         <!--
         <ul class="dropdown-menu" aria-labelledby="mavnarDropdown">
             {% get_current_language as LANGUAGE_CODE %}

@@ -33,7 +33,7 @@ urlpatterns = [
     path('donation/', include('donation.urls')),
 ]
 
-urlpatterns += i18n_patterns(path('', views.index, name="index"))
+#urlpatterns += i18n_patterns(path('', views.index, name="index"))
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
